@@ -6,13 +6,14 @@ namespace FSMGenerator
     {
         IStateMachine<T> Generate();
     }
-    public class Generator<T> : IGenerator<T>
+    public class SimpleGenerator<T> : IGenerator<T>
     {
 
         private IFSMConfigProvider configProvider;
         public IStateMachine<T> Generate()
         {
             var config = configProvider.GetConfigs();
+            
             
             throw new System.NotImplementedException();
         }
