@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using System;
+using FSMGenerator.FSMConfig.ConfigProvider;
+using Newtonsoft.Json;
 
 namespace FSMGenerator.FSMConfig
 {
@@ -16,7 +17,7 @@ namespace FSMGenerator.FSMConfig
         public IEnumerable<FSMStateConfig> GetConfigs()
         {
             var rawConfig = fileConfigProvider.GetRawConfig();
-            throw new NotImplementedException("");
+            return JsonConvert.DeserializeObject<FSMStateConfig[]>(rawConfig);
         }
     }
 }

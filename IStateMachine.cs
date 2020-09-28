@@ -16,9 +16,12 @@ namespace FSMGenerator
     public class SimpleStateMachine<T> : IStateMachine<T>
     {
         private Dictionary<State, Func<T, State>> transition;
+
         public State Next(State currentState, T inputValue)
         {
-            throw new System.NotImplementedException();
+            var transitionFunction = transition[currentState];
+
+            return transitionFunction(inputValue);
         }
     }
 }
